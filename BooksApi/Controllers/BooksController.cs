@@ -27,7 +27,6 @@ namespace BooksApi.Controllers
 
             if (book == null)
                 return NotFound();
-
             return book;
         }
 
@@ -48,7 +47,6 @@ namespace BooksApi.Controllers
                 return NotFound();
 
             _bookService.Update(id, bookIn);
-
             return NoContent();
         }
 
@@ -61,7 +59,6 @@ namespace BooksApi.Controllers
                 return NotFound();
 
             _bookService.Remove(book.Id);
-
             return NoContent();
         }
     }
