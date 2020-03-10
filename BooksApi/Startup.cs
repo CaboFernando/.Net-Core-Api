@@ -13,8 +13,6 @@ namespace BooksApi
 {
     public class Startup
     {
-        IWebHostEnvironment _env;
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -35,32 +33,6 @@ namespace BooksApi
 
             services.AddControllers()
                 .AddNewtonsoftJson(options => options.UseMemberCasing());
-
-
-            // IWebHostEnvironment (stored in _env) is injected into the Startup class.
-            //if (!_env.IsDevelopment())
-            //{
-            //    services.AddHttpsRedirection(options =>
-            //    {
-            //        options.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
-            //        options.HttpsPort = 443;
-            //    });
-            //}
-
-            //services.AddHsts(options =>
-            //{
-            //    options.Preload = true;
-            //    options.IncludeSubDomains = true;
-            //    options.MaxAge = TimeSpan.FromDays(60);
-            //    options.ExcludedHosts.Add("example.com");
-            //    options.ExcludedHosts.Add("www.example.com");
-            //});
-
-            //services.AddHttpsRedirection(option =>
-            //{
-            //    option.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
-            //    option.HttpsPort = 5001;
-            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,11 +40,6 @@ namespace BooksApi
         {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
-            //else
-            //{
-            //    app.UseExceptionHandler("/Error");
-            //    app.UseHsts();
-            //}
 
             app.UseHttpsRedirection();
 
